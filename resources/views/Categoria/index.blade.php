@@ -34,9 +34,6 @@
                 <div class="card">
                     <!-- Encabezado de la tarjeta -->
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="card-title mb-0">
-                            Categorías
-                        </h4>
                         <a href="{{ route('categorias.create') }}"
                             class="btn btn-success">
                             <i class="ri-add-line align-middle me-1"></i>
@@ -94,18 +91,6 @@
                                                 Editar
                                             </a>
                                             <!-- Eliminar -->
-                                            <!-- <form action="{{ route('categorias.destroy', $categoria->id) }}"
-                                                method="POST"
-                                                class="d-inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="btn btn-sm btn-danger"
-                                                    onclick="return confirm('¿Está seguro de eliminar esta categoría?')">
-                                                    <i class="ri-delete-bin-line align-middle"></i>
-                                                    Eliminar
-                                                </button>
-                                            </form> -->
                                             <form action="{{ route('categorias.destroy', $categoria->id) }}"
                                                 method="POST"
                                                 class="d-inline form-eliminar"
@@ -147,6 +132,10 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         new DataTable('#tablaCategorias', {
+            pagingType: 'simple_numbers',
+            columnDefs: [
+                { orderable: false, targets: [3] } // Deshabilitar ordenamiento en las columnas de foto y acciones
+            ],
             language: {
                 search: "Buscar:",
                 lengthMenu: "Mostrar _MENU_ registros",
@@ -156,8 +145,8 @@
                 zeroRecords: "No se encontraron registros",
                 emptyTable: "No hay categorías registradas",
                 paginate: {
-                    first: "Primero",
-                    last: "Último",
+                    // first: "Primero",
+                    // last: "Último",
                     next: "Siguiente",
                     previous: "Anterior"
                 }

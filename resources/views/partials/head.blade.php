@@ -11,8 +11,11 @@
 <meta name="author" content="AnderCode">
 <title>@yield('title', 'Sistema de Compra y Venta')</title>
 
-<!-- Favicon -->
+<!-- Icono del sitio -->
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+
+<!-- Select2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <!-- Layout JS -->
 <script src="{{ asset('assets/js/layout.js') }}"></script>
